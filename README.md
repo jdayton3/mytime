@@ -1,5 +1,9 @@
 # My Time
 
+A quick & dirty way to track the time I spend working on my research and to get metrics on how much work I'm doing.
+
+Uses [this Google Sheet](https://docs.google.com/spreadsheets/d/11oDqgcAzuKgF1550oCSY7fP_5iyH5nrTuZtAwK23-Uk/edit#gid=0).
+
 ## Requirements
 
 - The [R programming language](https://www.r-project.org/)
