@@ -10,8 +10,10 @@ suppressMessages(
   timesheet <- read_sheet(sheet_url)
 )
 
+print("Goal: 500 minutes of research per week.")
 timesheet %>%
   group_by(Week = week(Date)) %>%
   summarize(Minutes = sum(Minutes)) %>%
   arrange(desc(Week)) %>%
-  head(5)
+  head(5) %>%
+  data.frame()
