@@ -11,7 +11,7 @@ suppressMessages(
   timesheet <- read_sheet(SHEET_URL)
 )
 
-sprintf("Goal: %d minutes of research per week.", WEEKLY_GOAL_MINUTES)
+cat(sprintf("Goal: %d minutes of research per week.\n", WEEKLY_GOAL_MINUTES))
 timesheet %>%
   group_by(Week = week(Date)) %>%
   summarize(Minutes = sum(Minutes)) %>%
@@ -19,3 +19,15 @@ timesheet %>%
   arrange(desc(Week)) %>%
   head(5) %>%
   data.frame()
+
+cat("\n")
+
+cat(sprintf("Minutes tracked so far today (%s)\n", today()))
+timesheet %>%
+  group_by(Date, Category) %>%
+  summarize(Minutes = sum(Minutes)) %>%
+  filter(Date == today()) %>%
+  ungroup() %>%
+  select(-Date) %>%
+  data.frame() %>%
+  bind_rows(summarise_all(., funs(if(is.numeric(.)) sum(.) else "Total")))
