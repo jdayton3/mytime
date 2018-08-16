@@ -23,8 +23,20 @@ Then run:
 
 ```bash
 $ mytime
-# A tibble: 1 x 2
-   Week Minutes
-  <dbl>   <dbl>
-1    33      45
+
+Goal: 500 minutes of research per week.
+  Week Minutes Completion
+1   33     190       0.38
+
+Minutes tracked so far today (2018-08-15)
+  Category Minutes
+1   coding      40
+2 planning      35
+3  reading      35
+4  writing      20
+5    Total     130
 ```
+
+## Personalize
+
+To change the weekly minutes goal and the Google Sheet the code gets the data from, adjust the `WEEKLY_GOAL_MINUTES` and `SHEET_URL` in [`mytime.R`](mytime.R)
