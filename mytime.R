@@ -28,6 +28,7 @@ cat(sprintf("Minutes tracked so far today (%s)\n", today()))
 timesheet %>%
   group_by(Date, Category) %>%
   summarize(Minutes = sum(Minutes)) %>%
+  arrange(desc(Minutes)) %>%
   filter(Date == today()) %>%
   ungroup() %>%
   select(-Date) %>%
